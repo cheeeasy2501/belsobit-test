@@ -46,7 +46,7 @@
                 {title:'Остатки',number:3},
             ],
             parse:false,
-            start:1,
+            start:2,
             count:1,
             excel_name:null
         }),

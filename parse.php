@@ -20,10 +20,10 @@ foreach ($objPHPExcel->getWorksheetIterator() as $worksheet) // цикл обх�
 
     for ($row = $start; $row <= $highestRow; ++ $row) // обходим все строки
     {
-        $cell1 = $worksheet->getCellByColumnAndRow(0, $row); //артикул
-        $cell2 = $worksheet->getCellByColumnAndRow(1, $row); //наименование
-        $cell3 = $worksheet->getCellByColumnAndRow(2, $row); //количество
-        $cell4 = $worksheet->getCellByColumnAndRow(3, $row); //цена
+        $cell1 = $worksheet->getCellByColumnAndRow((int)$_POST['product_id'], $row); //артикул
+        $cell2 = $worksheet->getCellByColumnAndRow((int)$_POST['title'], $row); //наименование
+        $cell3 = $worksheet->getCellByColumnAndRow((int)$_POST['count'], $row); //количество
+        $cell4 = $worksheet->getCellByColumnAndRow((int)$_POST['price'], $row); //цена
          $sql = "INSERT INTO `products` (`product_id`,`title`,`price`,`count`) VALUES
         ('$cell1','$cell2','$cell3','$cell4')";
         $query = mysqli_query($link,$sql) or die('Ошибка');
